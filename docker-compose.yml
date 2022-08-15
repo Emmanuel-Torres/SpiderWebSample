@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  licensing_api:
+    container_name: licensing_api
+    build: ./SpiderWeb.LicensingApi
+
+  front_end:
+    container_name: front_end
+    build: ./SpiderWeb.FrontEnd
+    ports:
+      - 80:80
+    # volumes:
+    #   - ./SpiderWeb.FrontEnd/default.conf:/etc/nginx/conf.d/default.conf
+    #   - ./SpiderWeb.FrontEnd/nginx.conf:/etc/nginx/nginx.conf
