@@ -1,0 +1,74 @@
+@page "/personform"
+@using System.ComponentModel.DataAnnotations
+@inject HttpClient Http
+
+<PageTitle>Person Form</PageTitle>
+
+<h1>Form Sample</h1>
+
+<p>This component demonstrates adding dummy data to table storage</p>
+
+<EditForm Model="@person" OnValidSubmit="@SubmitPerson">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+    <label for="firstName">First Name</label>
+    <InputText id="firstName" @bind-Value="person.FirstName" />
+    <label for="lastName">Last Name</label>
+    <InputText id="lastName" @bind-Value="person.LastName" />
+    <button type="submit">Submit</button>
+</EditForm>
+
+<h2>Everyone Here</h2>
+@if (people == null)
+{
+    <p>There is no one yet...</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var person in people)
+            {
+                <tr>
+                    <td>@person.FirstName</td>
+                    <td>@person.LastName</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private IEnumerable<Person>? people;
+    private Person person = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        people = await GetPeopleAsync();
+    }
+
+    private async Task SubmitPerson()
+    {
+        await Http.PostAsJsonAsync("/api/people", person);
+        people = await GetPeopleAsync(); 
+    }
+
+    private async Task<IEnumerable<Person>?> GetPeopleAsync()
+    {
+        return await Http.GetFromJsonAsync<IEnumerable<Person>>("/api/people");   
+    }
+
+    public class Person
+    {
+        [Required]
+        public string? FirstName { get; set; }
+        [Required]
+        public string? LastName {get; set;}
+    }
+}

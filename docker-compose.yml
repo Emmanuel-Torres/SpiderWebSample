@@ -4,6 +4,8 @@ services:
   licensing_api:
     container_name: licensing_api
     build: ./SpiderWeb.LicensingApi
+    env_file:
+      - ./SpiderWeb.LicensingApi/.env
 
   front_end:
     container_name: front_end
@@ -13,3 +15,5 @@ services:
     volumes:
       - ./SpiderWeb.FrontEnd/default.conf:/etc/nginx/conf.d/default.conf
       - ./SpiderWeb.FrontEnd/nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - licensing_api

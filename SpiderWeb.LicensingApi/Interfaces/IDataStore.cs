@@ -1,6 +1,6 @@
 ﻿namespace SpiderWeb.LicensingApi.Interfaces
 {
-    public interface ITableService
+    public interface IDataStore
     {
     }
 }
