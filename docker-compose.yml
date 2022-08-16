@@ -10,6 +10,6 @@ services:
     build: ./SpiderWeb.FrontEnd
     ports:
       - 80:80
-    # volumes:
-    #   - ./SpiderWeb.FrontEnd/default.conf:/etc/nginx/conf.d/default.conf
-    #   - ./SpiderWeb.FrontEnd/nginx.conf:/etc/nginx/nginx.conf
+    volumes:
+      - ./SpiderWeb.FrontEnd/default.conf:/etc/nginx/conf.d/default.conf
+      - ./SpiderWeb.FrontEnd/nginx.conf:/etc/nginx/nginx.conf
