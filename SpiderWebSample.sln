@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32526.322
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpiderWeb.FrontEnd", "SpiderWeb.FrontEnd\SpiderWeb.FrontEnd.csproj", "{45945FFD-47B1-425F-A231-9EDA978D75B6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpiderWeb.FrontEnd", "src\SpiderWeb.FrontEnd\SpiderWeb.FrontEnd.csproj", "{45945FFD-47B1-425F-A231-9EDA978D75B6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpiderWeb.LicensingApi", "SpiderWeb.LicensingApi\SpiderWeb.LicensingApi.csproj", "{AA03944B-9C63-40AD-99DF-326AA30478E4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpiderWeb.LicensingApi", "src\SpiderWeb.LicensingApi\SpiderWeb.LicensingApi.csproj", "{AA03944B-9C63-40AD-99DF-326AA30478E4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
