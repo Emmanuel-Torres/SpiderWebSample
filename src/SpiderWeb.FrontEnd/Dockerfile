@@ -10,3 +10,5 @@ RUN dotnet publish SpiderWeb.FrontEnd.csproj -c Release -o /app/publish
 
 FROM nginx AS final
 COPY --from=publish /app/publish/wwwroot /usr/share/nginx/html
+COPY default.conf.template /etc/nginx/templates/default.conf.template
+COPY nginx.conf /etc/nginx
