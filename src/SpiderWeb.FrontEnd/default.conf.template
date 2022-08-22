@@ -1,7 +1,7 @@
 server {
-    listen      80;
-    listen [::]:80;
-    server_name localhost;
+    listen           443;
+    listen      [::]:443;
+    server_name demofrontend.braveocean-d1ccaaee.westus.azurecontainerapps.io;
 
     location / {
         root /usr/share/nginx/html;
@@ -10,8 +10,10 @@ server {
     }
 
     location /api {
-        resolver 127.0.0.11 valid=30s;
         proxy_pass ${API_URL};
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_ssl_server_name on;
     }
 
     error_page   500 502 503 504  /50x.html;
